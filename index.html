@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b2a4a">
+  <meta name="description" content="ANGKASA SMART SCHOOL - Sistem Manajemen Sekolah SMP Angkasa Husein Sastranegara">
+
+  <title>ANGKASA SMART SCHOOL | SMP ANGKASA HUSEIN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- IDENTITAS APLIKASI -->
+      <div class="brand">
+        <img
+          class="brand-mark"
+          src="assets/logo-sekolah.png"
+          alt="Logo SMP Angkasa Husein Sastranegara"
+          style="object-fit: contain; background: #ffffff; padding: 2px;"
+        >
+
+        <div class="brand-copy">
+          <strong>ANGKASA</strong>
+          <span>SMART SCHOOL</span>
+        </div>
+
+        <button class="icon-button sidebar-close" id="sidebarClose" aria-label="Tutup menu">×</button>
+      </div>
+
+      <!-- IDENTITAS SEKOLAH -->
+      <div class="school-chip">
+        <img
+          class="school-avatar"
+          src="assets/logo-sekolah.png"
+          alt="Logo Sekolah"
+          style="object-fit: contain; background: #ffffff; padding: 2px;"
+        >
+
+        <div>
+          <strong>SMP Angkasa Husein</strong>
+          <span>School Management System</span>
+        </div>
+      </div>
+
+      <!-- MENU NAVIGASI -->
+      <nav class="main-nav" aria-label="Navigasi utama">
+
+        <p class="nav-heading">MENU UTAMA</p>
+
+        <button class="nav-link active" data-page="dashboard">
+          <span class="nav-icon">▦</span>Dashboard
+        </button>
+
+        <!-- DROPDOWN MASTER DATA -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">▤</span>Master Data
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="master-siswa" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Siswa
+            </button>
+            <button class="nav-link" data-page="master-guru-karyawan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Guru & Karyawan
+            </button>
+          </div>
+        </details>
+
+        <button class="nav-link" data-page="absensi-siswa">
+          <span class="nav-icon">✓</span>Absensi Siswa
+        </button>
+
+        <button class="nav-link" data-page="absensi-pegawai">
+          <span class="nav-icon">◷</span>Absensi Pegawai
+        </button>
+
+        <button class="nav-link" data-page="scan-absensi-ekskul">
+          <span class="nav-icon">📷</span>Scan Absensi Ekskul
+        </button>
+
+        <!-- DROPDOWN AKADEMIK -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">▱</span>Akademik
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="akademik-tahun-pelajaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Tahun Pelajaran
+            </button>
+            <button class="nav-link" data-page="akademik-kelas" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Kelas
+            </button>
+            <button class="nav-link" data-page="akademik-mata-pelajaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Mata Pelajaran
+            </button>
+            <button class="nav-link" data-page="akademik-jadwal-pelajaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal Pelajaran
+            </button>
+            <button class="nav-link" data-page="akademik-penugasan-mengajar" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Penugasan Mengajar
+            </button>
+            <button class="nav-link" data-page="akademik-kenaikan-kelas" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Kenaikan Kelas
+            </button>
+            <button class="nav-link" data-page="akademik-penentuan-kelas" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Penentuan Kelas
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN NILAI & RAPOR -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">📊</span>Nilai & Rapor
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="nilai-penilaian" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Penilaian
+            </button>
+            <button class="nav-link" data-page="nilai-akhir-rapor" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Nilai Akhir/Rapor
+            </button>
+            <button class="nav-link" data-page="nilai-bobot" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Bobot Nilai
+            </button>
+            <button class="nav-link" data-page="nilai-jenis" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jenis Nilai
+            </button>
+            <button class="nav-link" data-page="nilai-tujuan-pembelajaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Tujuan Pembelajaran
+            </button>
+          </div>
+        </details>
+
+        <button class="nav-link" data-page="kesiswaan">
+          <span class="nav-icon">♧</span>Kesiswaan
+        </button>
+
+        <p class="nav-heading nav-heading-spaced">MANAJEMEN SEKOLAH</p>
+
+        <!-- MENU KALENDER PENDIDIKAN -->
+        <button class="nav-link" data-page="kalender-pendidikan">
+          <span class="nav-icon">📅</span>Kalender Pendidikan
+        </button>
+
+        <!-- DROPDOWN PRESENSI (10 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">📋</span>Presensi
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="presensi-overview" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Overview
+            </button>
+            <button class="nav-link" data-page="presensi-realtime" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Realtime
+            </button>
+            <button class="nav-link" data-page="presensi-jadwal" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal
+            </button>
+            <button class="nav-link" data-page="presensi-jadwal-khusus" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal khusus
+            </button>
+            <button class="nav-link" data-page="presensi-manual" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Presensi manual
+            </button>
+            <button class="nav-link" data-page="presensi-hari-libur" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Hari Libur
+            </button>
+            <button class="nav-link" data-page="presensi-laporan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan
+            </button>
+            <button class="nav-link" data-page="presensi-laporan-harian" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan Harian
+            </button>
+            <button class="nav-link" data-page="presensi-laporan-tahunan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan Tahunan
+            </button>
+            <button class="nav-link" data-page="presensi-laporan-karakter" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan Karakter
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN PRESENSI GURU (6 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">👩‍🏫</span>Presensi Guru
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="presensi-guru-utama" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Presensi Guru
+            </button>
+            <button class="nav-link" data-page="presensi-guru-laporan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan Presensi guru
+            </button>
+            <button class="nav-link" data-page="presensi-guru-statistik" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Statistik Presensi guru
+            </button>
+            <button class="nav-link" data-page="presensi-guru-status" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>status Kehadiran Guru
+            </button>
+            <button class="nav-link" data-page="presensi-guru-piket" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal Guru Piket
+            </button>
+            <button class="nav-link" data-page="presensi-guru-khusus" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal Khusus Presensi Guru
+            </button>
+          </div>
+        </details>
+
+        <!-- MENU CATATAN WALIKELAS -->
+        <button class="nav-link" data-page="catatan-walikelas">
+          <span class="nav-icon">📖</span>Catatan Walikelas
+        </button>
+
+        <!-- DROPDOWN EKSTRAKURIKULER (7 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">☆</span>Ekstrakurikuler
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="ekskul-data" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Data Ekskul
+            </button>
+            <button class="nav-link" data-page="ekskul-pendaftaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pendaftaran
+            </button>
+            <button class="nav-link" data-page="ekskul-peserta" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Peserta Ekskul
+            </button>
+            <button class="nav-link" data-page="ekskul-jadwal" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jadwal ekskul
+            </button>
+            <button class="nav-link" data-page="ekskul-laporan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Laporan Ekskul
+            </button>
+            <button class="nav-link" data-page="ekskul-izin" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Izin Ekskul
+            </button>
+            <button class="nav-link" data-page="ekskul-scan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Scan Presensi Ekskul
+            </button>
+          </div>
+        </details>
+
+        <!-- MENU ORGANISASI SISWA -->
+        <button class="nav-link" data-page="organisasi-siswa">
+          <span class="nav-icon">🏛️</span>Organisasi Siswa
+        </button>
+
+        <!-- MENU PENGAJUAN IZIN SISWA -->
+        <button class="nav-link" data-page="pengajuan-izin-siswa">
+          <span class="nav-icon">✉️</span>Pengajuan Izin Siswa
+        </button>
+
+        <!-- MENU BUKU TAMU -->
+        <button class="nav-link" data-page="buku-tamu">
+          <span class="nav-icon">📖</span>Buku Tamu
+        </button>
+
+        <!-- DROPDOWN PJJ (2 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">💻</span>PJJ
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="pjj-pengajuan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pengajuan PJJ
+            </button>
+            <button class="nav-link" data-page="pjj-daftar-hadir" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Daftar Hadir
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN PELANGGARAN SISWA (6 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">⚠️</span>Pelanggaran Siswa
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="pelanggaran-siswa-utama" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-siswa-akumulasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Akumulasi pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-siswa-jenis" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jenis Pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-siswa-restorasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Restorasi Poin
+            </button>
+            <button class="nav-link" data-page="pelanggaran-siswa-jenis-restorasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jenis Restorasi
+            </button>
+            <button class="nav-link" data-page="pelanggaran-siswa-riwayat" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Riwayat Terhapus
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN PELANGGARAN KELAS (6 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">🛑</span>Pelanggaran Kelas
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="pelanggaran-kelas-utama" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-kelas-akumulasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Akumulasi pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-kelas-jenis" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jenis Pelanggaran
+            </button>
+            <button class="nav-link" data-page="pelanggaran-kelas-restorasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Restorasi Poin
+            </button>
+            <button class="nav-link" data-page="pelanggaran-kelas-jenis-restorasi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Jenis Restorasi
+            </button>
+            <button class="nav-link" data-page="pelanggaran-kelas-riwayat" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Riwayat Terhapus
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN 10 PROGRAM UNGGULAN -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">✧</span>10 Program Unggulan
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="program-berbakat" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🌟</span>Angkasa Berbakat
+            </button>
+            <button class="nav-link" data-page="program-berbudaya" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🎭</span>Angkasa Berbudaya
+            </button>
+            <button class="nav-link" data-page="program-berkarakter" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🛡️</span>Angkasa Berkarakter
+            </button>
+            <button class="nav-link" data-page="program-berkarya" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🛠️</span>Angkasa Berkarya
+            </button>
+            <button class="nav-link" data-page="program-can-speak" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🗣️</span>Angkasa Can Speak
+            </button>
+            <button class="nav-link" data-page="program-cerdas-spritual" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🕊️</span>Angkasa Cerdas Spritual
+            </button>
+            <button class="nav-link" data-page="program-cinta-dirgantara" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">✈️</span>Angkasa Cinta Dirgantara
+            </button>
+            <button class="nav-link" data-page="program-juara" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🏆</span>Angkasa Juara
+            </button>
+            <button class="nav-link" data-page="program-kewirausahaan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">💼</span>Angkasa Kewirausahaan
+            </button>
+            <button class="nav-link" data-page="program-ramah-lingkungan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">🌱</span>Angkasa Ramah Lingkungan
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN 7KAIH -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">✦</span>7KAIH
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="7kaih-pengisian" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pengisian 7KAIH
+            </button>
+            <button class="nav-link" data-page="7kaih-rekap" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Rekap
+            </button>
+          </div>
+        </details>
+
+        <button class="nav-link" data-page="supervisi">
+          <span class="nav-icon">▣</span>Supervisi GTK
+        </button>
+
+        <button class="nav-link" data-page="sarpras">
+          <span class="nav-icon">⌂</span>Sarana Prasarana
+        </button>
+
+        <!-- DROPDOWN KEUANGAN (3 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">◇</span>Keuangan
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="keuangan-kategori-spp" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Kategori SPP
+            </button>
+            <button class="nav-link" data-page="keuangan-tagihan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Tagihan
+            </button>
+            <button class="nav-link" data-page="keuangan-pembayaran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pembayaran
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN PERPUSTAKAAN (2 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">▥</span>Perpustakaan
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="perpustakaan-buku" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Buku
+            </button>
+            <button class="nav-link" data-page="perpustakaan-peminjaman" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Peminjaman
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN UKS (2 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">♡</span>UKS
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="uks-kunjungan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Kunjungan UKS
+            </button>
+            <button class="nav-link" data-page="uks-pengaturan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pengaturan UKS
+            </button>
+          </div>
+        </details>
+
+        <!-- MENU BK -->
+        <button class="nav-link" data-page="bk">
+          <span class="nav-icon">🎯</span>BK
+        </button>
+
+        <!-- MENU ALUMNI -->
+        <button class="nav-link" data-page="alumni">
+          <span class="nav-icon">🎓</span>Alumni
+        </button>
+
+        <!-- MENU BERITA -->
+        <button class="nav-link" data-page="berita">
+          <span class="nav-icon">📰</span>Berita
+        </button>
+
+        <!-- MENU PRESTASI SISWA -->
+        <button class="nav-link" data-page="prestasi-siswa">
+          <span class="nav-icon">🏆</span>Prestasi siswa
+        </button>
+
+        <!-- MENU KAS KELAS -->
+        <button class="nav-link" data-page="kas-kelas">
+          <span class="nav-icon">💰</span>Kas Kelas
+        </button>
+
+        <!-- MENU NOTIFIKASI -->
+        <button class="nav-link" data-page="notifikasi">
+          <span class="nav-icon">🔔</span>Notifikasi
+        </button>
+
+        <!-- DROPDOWN ADMINISTRASI UMUM (2 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">▧</span>Administrasi Umum
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="administrasi-surat-masuk" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Surat Masuk
+            </button>
+            <button class="nav-link" data-page="administrasi-surat-keluar" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Surat Keluar
+            </button>
+          </div>
+        </details>
+
+        <!-- DROPDOWN USER (2 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">👤</span>USER
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="user-pengelolaan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pengelolaan User
+            </button>
+            <button class="nav-link" data-page="user-peran" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Peran & Hak Akses
+            </button>
+          </div>
+        </details>
+
+        <p class="nav-heading nav-heading-spaced">SISTEM</p>
+
+        <button class="nav-link" data-page="laporan">
+          <span class="nav-icon">▥</span>Laporan & Analitik
+        </button>
+
+        <!-- DROPDOWN SISTEM (4 SUB MENU) -->
+        <details style="margin: 2px 0;">
+          <summary class="nav-link" style="list-style: none; cursor: pointer; user-select: none;">
+            <span class="nav-icon">⚙</span>Sistem
+            <span class="nav-count" style="margin-left: auto;">▾</span>
+          </summary>
+          <div style="padding-left: 14px; margin-top: 2px;">
+            <button class="nav-link" data-page="sistem-pengaturan" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Pengaturan
+            </button>
+            <button class="nav-link" data-page="sistem-lisensi" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Lisensi
+            </button>
+            <button class="nav-link" data-page="sistem-log-aktivitas" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>log Aktivitas
+            </button>
+            <button class="nav-link" data-page="sistem-verifikasi-dokumen" style="font-size: 10px; min-height: 32px;">
+              <span class="nav-icon">▫</span>Verifikasi Dokumen
+            </button>
+          </div>
+        </details>
+
+        <!-- MENU PANDUAN -->
+        <button class="nav-link" data-page="panduan">
+          <span class="nav-icon">📘</span>Panduan
+        </button>
+
+      </nav>
+
+      <!-- STATUS APLIKASI -->
+      <div class="sidebar-footer">
+        <div class="status-dot"></div>
+        <div>
+          <strong>Fondasi aplikasi</strong>
+          <span>Mode pratinjau · Data contoh</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- AREA UTAMA -->
+    <main class="main-area">
+
+      <!-- HEADER -->
+      <header class="topbar">
+
+        <div class="topbar-left">
+
+          <button class="icon-button menu-toggle" id="menuToggle" aria-label="Buka menu">
+            ☰
+          </button>
+
+          <div class="breadcrumb">
+            <span>ANGKASA SMART SCHOOL</span>
+            <b>/</b>
+            <strong id="breadcrumbCurrent">Dashboard</strong>
+          </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+          <label class="year-select-wrap">
+            <span class="sr-only">Tahun pelajaran</span>
+
+            <select id="schoolYear" aria-label="Pilih tahun pelajaran">
+              <option>2026/2027</option>
+              <option>2025/2026</option>
+              <option>2027/2028</option>
+            </select>
+          </label>
+
+          <button
+            class="icon-button theme-toggle"
+            id="themeToggle"
+            aria-label="Ganti tema"
+            title="Ganti tema"
+          >
+            <span id="themeIcon">☾</span>
+          </button>
+
+          <button class="notification-button" id="notificationButton" aria-label="Notifikasi">
+            ♧<i></i>
+          </button>
+
+          <div class="profile">
+            <div class="profile-avatar">KS</div>
+
+            <div class="profile-copy">
+              <strong>Kepala Sekolah</strong>
+              <span>Administrator</span>
+            </div>
+
+            <span class="profile-chevron">⌄</span>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- HALAMAN MASTER DATA SISWA -->
+      <section id="page-master-siswa" style="display: none; padding: 28px;">
+
+        <div style="margin-bottom: 24px;">
+          <p style="color: #64748b; font-size: 12px; margin-bottom: 8px;">
+            MASTER DATA
+          </p>
+          <h1 style="font-size: 26px; margin: 0 0 8px;">
+            Data Siswa
+          </h1>
+          <p style="color: #64748b; margin: 0;">
+            Data induk siswa SMP Angkasa Husein yang terhubung dengan Google Sheets.
+          </p>
+        </div>
+
+        <div style="background: white; padding: 22px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h2 style="font-size: 18px; margin: 0 0 5px;">Daftar Siswa</h2>
+              <span style="font-size: 13px; color: #64748b;">
+                Total siswa: <strong id="statTotalSiswa">0</strong>
+              </span>
+            </div>
+
+            <button onclick="ambilDataSiswa()"
+              style="padding: 10px 16px; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer;">
+              ↻ Muat Ulang Data
+            </button>
+          </div>
+
+          <div style="display:flex; gap:8px; margin:0 0 16px; flex-wrap:wrap;">
+            <input id="cariSiswa" type="search" placeholder="Cari nama siswa, NIS, atau kelas..." aria-label="Cari siswa berdasarkan nama, NIS, atau kelas" style="flex:1; min-width:220px; box-sizing:border-box; padding:11px 12px; border:1px solid #cbd5e1; border-radius:8px; font:inherit;">
+            <button id="btnCariSiswa" type="button" style="padding:10px 18px; border:0; border-radius:8px; background:#2563eb; color:white; cursor:pointer;">Cari</button>
+          </div>
+          <p id="infoCariSiswa" style="font-size:12px; color:#64748b; margin:-6px 0 12px;"></p>
+
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; min-width: 950px;">
+              <thead>
+                <tr style="background: #f1f5f9; text-align: left;">
+                  <th style="padding: 12px;">Pilih</th>
+                  <th style="padding: 12px;">No.</th>
+                  <th style="padding: 12px;">Foto</th>
+                  <th style="padding: 12px;">Nama Siswa</th>
+                  <th style="padding: 12px;">NIS</th>
+                  <th style="padding: 12px;">Kelas</th>
+                  <th style="padding: 12px;">Jenis Kelamin</th>
+                  <th style="padding: 12px;">Tempat, Tanggal Lahir</th>
+                  <th style="padding: 12px;">Status</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabelSiswaBody">
+                <tr>
+                  <td colspan="9" style="text-align: center; padding: 24px;">
+                    Data siswa belum dimuat.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HALAMAN MASTER DATA GURU & KARYAWAN -->
+      <section id="page-master-guru-karyawan" style="display: none; padding: 28px;">
+        <div style="margin-bottom: 24px;">
+          <p style="color: #64748b; font-size: 12px; margin-bottom: 8px;">MASTER DATA</p>
+          <h1 style="font-size: 26px; margin: 0 0 8px;">Data Guru & Karyawan</h1>
+          <p style="color: #64748b; margin: 0;">Data induk guru dan tenaga kependidikan SMP Angkasa Husein yang terhubung dengan Google Sheets.</p>
+        </div>
+        <div style="background: white; padding: 22px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h2 style="font-size: 18px; margin: 0 0 5px;">Daftar Guru & Karyawan</h2>
+              <span style="font-size: 13px; color: #64748b;">Total pegawai: <strong id="statTotalPegawai">0</strong></span>
+            </div>
+            <button onclick="ambilDataPegawai()" style="padding: 10px 16px; border: none; border-radius: 8px; background: #2563eb; color: white; cursor: pointer;">↻ Muat Ulang Data</button>
+          </div>
+          <div style="display:flex; gap:8px; margin:0 0 16px; flex-wrap:wrap;">
+            <input id="cariPegawai" type="search" placeholder="Cari nama, ID pegawai, NIP, NUPTK, atau jabatan..." aria-label="Cari pegawai berdasarkan nama, ID, NIP, NUPTK, atau jabatan" style="flex:1; min-width:220px; box-sizing:border-box; padding:11px 12px; border:1px solid #cbd5e1; border-radius:8px; font:inherit;">
+            <button id="btnCariPegawai" type="button" style="padding:10px 18px; border:0; border-radius:8px; background:#2563eb; color:white; cursor:pointer;">Cari</button>
+          </div>
+          <p id="infoCariPegawai" style="font-size:12px; color:#64748b; margin:-6px 0 12px;"></p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; min-width: 1250px;">
+              <thead><tr style="background: #f1f5f9; text-align: left;">
+                <th style="padding: 12px;">Pilih</th><th style="padding: 12px;">No.</th>
+                <th style="padding: 12px;">ID Pegawai</th><th style="padding: 12px;">Nama Lengkap</th>
+                <th style="padding: 12px;">NIP</th><th style="padding: 12px;">NUPTK</th>
+                <th style="padding: 12px;">Jenis Kelamin</th><th style="padding: 12px;">Jabatan</th>
+                <th style="padding: 12px;">Status Kepegawaian</th><th style="padding: 12px;">Mata Pelajaran</th>
+                <th style="padding: 12px;">No. HP</th><th style="padding: 12px;">Email</th>
+                <th style="padding: 12px;">Status Aktif</th><th style="padding: 12px;">Keterangan</th>
+              </tr></thead>
+              <tbody id="tabelPegawaiBody"><tr><td colspan="14" style="text-align: center; padding: 24px;">Data pegawai belum dimuat.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HALAMAN ABSENSI DIGITAL (APLIKASI EKSTERNAL MELALUI IFRAME) -->
+      <section id="page-absensi-tersemat" style="display:none; padding:28px;">
+        <div style="margin-bottom:18px;">
+          <p style="color:#64748b; font-size:12px; margin:0 0 8px;">ABSENSI DIGITAL</p>
+          <h1 id="judulAbsensiTersemat" style="font-size:26px; margin:0 0 8px;">Absensi Siswa</h1>
+          <p id="petunjukAbsensiTersemat" style="color:#64748b; margin:0; line-height:1.6;">
+            Pada aplikasi absensi di bawah, pilih SISWA untuk melakukan absensi siswa.
+          </p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div id="statusAbsensiIframe" role="status" aria-live="polite" style="font-size:12px; color:#64748b; padding:4px 4px 12px;">
+            Aplikasi absensi akan dimuat saat menu dibuka.
+          </div>
+          <iframe
+            id="iframeAbsensiDigital"
+            title="Aplikasi Absensi Digital SMP Angkasa Husein"
+            data-src="https://absensidigitalsmphsn.netlify.app/"
+            loading="lazy"
+            allow="camera; fullscreen"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="display:block; width:100%; height: min(78vh, 900px); min-height:620px; border:0; border-radius:10px; background:#f8fafc;"
+          ></iframe>
+        </div>
+        <p style="font-size:12px; color:#64748b; margin:12px 2px 0; line-height:1.6;">
+          Catatan: izin kamera diberikan oleh browser untuk situs ANGKASA SMART SCHOOL dan konten absensi yang ditampilkan. Jika kamera belum aktif, periksa izin kamera pada ikon gembok di bilah alamat browser.
+        </p>
+      </section>
+
+      <!-- HALAMAN SUPERVISI GTK (APLIKASI EKSTERNAL DARI GITHUB PAGES) -->
+      <section id="page-supervisi-tersemat" style="display:none; padding:28px;">
+        <div style="margin-bottom:18px;">
+          <p style="color:#64748b; font-size:12px; margin:0 0 8px;">MANAJEMEN SEKOLAH</p>
+          <h1 style="font-size:26px; margin:0 0 8px;">Supervisi GTK</h1>
+          <p style="color:#64748b; margin:0; line-height:1.6;">
+            Aplikasi Supervisi GTK SMP Angkasa Husein Sastranegara.
+          </p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div id="statusSupervisiIframe" role="status" aria-live="polite"
+               style="font-size:12px; color:#64748b; padding:4px 4px 12px;">
+            Aplikasi Supervisi GTK akan dimuat saat menu dibuka.
+          </div>
+          <iframe
+            id="iframeSupervisiGTK"
+            title="Aplikasi Supervisi GTK SMP Angkasa Husein"
+            data-src="https://smp-hsn.github.io/supervisiguru/"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="display:block; width:100%; height:calc(100vh - 190px); min-height:650px; border:0; border-radius:10px; background:#f8fafc;"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- HALAMAN SARANA PRASARANA (APLIKASI EKSTERNAL DARI NETLIFY) -->
+      <section id="page-sarpras-tersemat" style="display:none; padding:28px;">
+        <div style="margin-bottom:18px;">
+          <p style="color:#64748b; font-size:12px; margin:0 0 8px;">MANAJEMEN SEKOLAH</p>
+          <h1 style="font-size:26px; margin:0 0 8px;">Sarana Prasarana</h1>
+          <p style="color:#64748b; margin:0; line-height:1.6;">
+            Aplikasi pengelolaan Sarana dan Prasarana SMP Angkasa Husein Sastranegara.
+          </p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div id="statusSarprasIframe" role="status" aria-live="polite"
+               style="font-size:12px; color:#64748b; padding:4px 4px 12px;">
+            Aplikasi Sarana Prasarana akan dimuat saat menu dibuka.
+          </div>
+          <iframe
+            id="iframeSarpras"
+            title="Aplikasi Sarana Prasarana SMP Angkasa Husein"
+            data-src="https://sarprassmphsn.netlify.app/"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="display:block; width:100%; height:calc(100vh - 190px); min-height:650px; border:0; border-radius:10px; background:#f8fafc;"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- HALAMAN PENGISIAN 7KAIH (APLIKASI EKSTERNAL DARI GITHUB PAGES) -->
+      <section id="page-7kaih-pengisian-tersemat" style="display:none; padding:28px;">
+        <div style="margin-bottom:18px;">
+          <p style="color:#64748b; font-size:12px; margin:0 0 8px;">PEMBIASAAN KARAKTER PESERTA DIDIK</p>
+          <h1 style="font-size:26px; margin:0 0 8px;">Pengisian 7KAIH</h1>
+          <p style="color:#64748b; margin:0; line-height:1.6;">
+            Aplikasi pengisian Gerakan 7 Kebiasaan Anak Indonesia Hebat SMP Angkasa Husein Sastranegara.
+          </p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+          <div id="status7KAIHIframe" role="status" aria-live="polite"
+               style="font-size:12px; color:#64748b; padding:4px 4px 12px;">
+            Aplikasi Pengisian 7KAIH akan dimuat saat menu dibuka.
+          </div>
+          <iframe
+            id="iframe7KAIHPengisian"
+            title="Aplikasi Pengisian 7KAIH SMP Angkasa Husein"
+            data-src="https://smpangkasahsn151-design.github.io/7KAIH2627/"
+            loading="lazy"
+            allow="fullscreen"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="display:block; width:100%; height:calc(100vh - 190px); min-height:650px; border:0; border-radius:10px; background:#f8fafc;"
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- KONTEN DASHBOARD -->
+      <div class="page-content">
+
+        <!-- SAPAAN -->
+        <section class="welcome-row">
+
+          <div>
+            <p class="eyebrow" id="todayLabel">SELASA, 3 NOVEMBER 2026</p>
+
+            <h1 id="pageTitle">Dashboard Sekolah</h1>
+
+            <p class="page-subtitle" id="pageSubtitle">
+              Pantau kondisi dan aktivitas SMP Angkasa Husein dalam satu tampilan.
+            </p>
+          </div>
+
+          <button class="primary-button" id="quickAction">
+            <span>＋</span> Aksi Cepat
+          </button>
+
+        </section>
+
+        <!-- HERO / BANNER -->
+        <section class="hero-panel">
+
+          <div class="hero-content">
+
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              SCHOOL OVERVIEW
+            </div>
+
+            <h2>
+              Mengelola Sekolah,<br>
+              <em>Menginspirasi Masa Depan.</em>
+            </h2>
+
+            <p>
+              Satu pusat kendali untuk memantau layanan, program, dan perkembangan sekolah.
+            </p>
+
+            <button class="hero-button" data-go="program">
+              Lihat Program Unggulan <span>→</span>
+            </button>
+
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <!-- LOGO RESMI SEKOLAH -->
+            <img
+              class="planet"
+              src="assets/logo-sekolah.png"
+              alt=""
+              style="object-fit: contain; background: #ffffff; padding: 5px;"
+            >
+
+            <div class="star star-one">✦</div>
+            <div class="star star-two">✧</div>
+            <div class="star star-three">·</div>
+
+            <div class="hero-label">
+              ANGKASA<br>
+              <small>SMART SCHOOL</small>
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- RINGKASAN SEKOLAH -->
+        <section class="section-block">
+
+          <div class="section-heading">
+
+            <div>
+              <h2>Ringkasan Sekolah</h2>
+              <p>Indikator utama pada tahun pelajaran terpilih.</p>
+            </div>
+
+            <span class="updated-label">
+              <span></span> Data simulasi
+            </span>
+
+          </div>
+
+          <div class="stats-grid">
+
+            <!-- TOTAL SISWA -->
+            <article class="stat-card">
+
+              <div class="stat-top">
+                <span class="stat-icon blue">♧</span>
+                <span class="stat-trend positive">Aktif</span>
+              </div>
+
+              <p class="stat-label">Total Siswa</p>
+              <div class="stat-value">367</div>
+              <p class="stat-foot">VII, VIII, dan IX</p>
+
+            </article>
+
+            <!-- GURU DAN TENAGA KEPENDIDIKAN -->
+            <article class="stat-card">
+
+              <div class="stat-top">
+                <span class="stat-icon violet">♙</span>
+                <span class="stat-trend neutral">Data contoh</span>
+              </div>
+
+              <p class="stat-label">Guru & Tenaga Kependidikan</p>
+              <div class="stat-value">—</div>
+              <p class="stat-foot">Menunggu data master</p>
+
+            </article>
+
+            <!-- KEHADIRAN SISWA -->
+            <article class="stat-card">
+
+              <div class="stat-top">
+                <span class="stat-icon green">✓</span>
+                <span class="stat-trend positive">Hari ini</span>
+              </div>
+
+              <p class="stat-label">Kehadiran Siswa</p>
+              <div class="stat-value">—<small>%</small></div>
+              <p class="stat-foot">Belum terhubung ke data absensi</p>
+
+            </article>
+
+            <!-- PROGRAM UNGGULAN -->
+            <article class="stat-card">
+
+              <div class="stat-top">
+                <span class="stat-icon orange">✧</span>
+                <span class="stat-trend neutral">10 program</span>
+              </div>
+
+              <p class="stat-label">Program Unggulan</p>
+              <div class="stat-value">10</div>
+              <p class="stat-foot">Menunggu penetapan PIC</p>
+
+            </article>
+
+          </div>
+        </section>
+
+        <!-- GRAFIK DAN PROGRAM -->
+        <section class="dashboard-grid">
+
+          <!-- KOMPOSISI SISWA -->
+          <article class="panel attendance-panel">
+
+            <div class="panel-heading">
+
+              <div>
+                <h2>Komposisi Siswa</h2>
+                <p>Jumlah siswa berdasarkan tingkat kelas.</p>
+              </div>
+
+              <button class="more-button" aria-label="Menu lainnya">•••</button>
+
+            </div>
+
+            <div class="student-chart">
+
+              <div class="donut-chart">
+                <div class="donut-center">
+                  <strong>367</strong>
+                  <span>Total siswa</span>
+                </div>
+              </div>
+
+              <div class="legend">
+
+                <div>
+                  <i class="legend-dot grade-seven"></i>
+                  <span>Kelas VII</span>
+                  <strong>125</strong>
+                </div>
+
+                <div>
+                  <i class="legend-dot grade-eight"></i>
+                  <span>Kelas VIII</span>
+                  <strong>146</strong>
+                </div>
+
+                <div>
+                  <i class="legend-dot grade-nine"></i>
+                  <span>Kelas IX</span>
+                  <strong>96</strong>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+          <!-- 10 PROGRAM UNGGULAN -->
+          <article class="panel program-panel">
+
+            <div class="panel-heading">
+
+              <div>
+                <h2>10 Program Unggulan</h2>
+                <p>Daftar program sekolah yang akan dikelola.</p>
+              </div>
+
+              <button class="text-button" data-go="program">
+                Lihat semua →
+              </button>
+
+            </div>
+
+            <div class="program-preview" id="programPreview">
+
+              <div class="program-row">
+                <span class="program-number">01</span>
+                <span>Angkasa Berbakat</span>
+                <b class="pic-pending">PIC belum ditetapkan</b>
+              </div>
+
+              <div class="program-row">
+                <span class="program-number">02</span>
+                <span>Angkasa Berbudaya</span>
+                <b class="pic-pending">PIC belum ditetapkan</b>
+              </div>
+
+              <div class="program-row">
+                <span class="program-number">03</span>
+                <span>Angkasa Berkarakter</span>
+                <b class="pic-pending">PIC belum ditetapkan</b>
+              </div>
+
+              <div class="program-row">
+                <span class="program-number">04</span>
+                <span>Angkasa Berkarya</span>
+                <b class="pic-pending">PIC belum ditetapkan</b>
+              </div>
+
+            </div>
+          </article>
+
+        </section>
+
+        <!-- AKTIVITAS DAN TINDAK LANJUT -->
+        <section class="section-block bottom-section">
+
+          <div class="section-heading">
+            <div>
+              <h2>Aktivitas & Tindak Lanjut</h2>
+              <p>Area pemantauan pekerjaan yang membutuhkan perhatian.</p>
+            </div>
+          </div>
+
+          <div class="attention-grid">
+
+            <article class="attention-card">
+
+              <span class="attention-icon amber">!</span>
+
+              <div>
+                <strong>Penetapan PIC program</strong>
+                <p>Pastikan setiap program unggulan memiliki penanggung jawab.</p>
+              </div>
+
+              <span class="attention-arrow">→</span>
+
+            </article>
+
+            <article class="attention-card">
+
+              <span class="attention-icon blue">▤</span>
+
+              <div>
+                <strong>Persiapan data induk</strong>
+                <p>Data siswa, pegawai, kelas, dan tahun pelajaran akan disiapkan.</p>
+              </div>
+
+              <span class="attention-arrow">→</span>
+
+            </article>
+
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+          <span>© 2026 Aris Keristian</span>
+          <span>Dirancang untuk SMP Angkasa Husein Sastranegara</span>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- NOTIFIKASI -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- JAVASCRIPT -->
+  <script src="code.js"></script>
+
+  <!-- INTEGRASI MENU SUPERVISI GTK DAN SARANA PRASARANA -->
+  <script>
+    (function () {
+      const URL_SUPERVISI_GTK = "https://smp-hsn.github.io/supervisiguru/";
+      const URL_SARPRAS = "https://sarprassmphsn.netlify.app/";
+
+      const halamanEksternal = {
+        "7kaih-pengisian": {
+          section: "page-7kaih-pengisian-tersemat",
+          iframe: "iframe7KAIHPengisian",
+          status: "status7KAIHIframe",
+          judul: "Pengisian 7KAIH",
+          url: "https://smpangkasahsn151-design.github.io/7KAIH2627/",
+          pesan: "Sedang memuat aplikasi Pengisian 7KAIH..."
+        },
+        supervisi: {
+          section: "page-supervisi-tersemat",
+          iframe: "iframeSupervisiGTK",
+          status: "statusSupervisiIframe",
+          judul: "Supervisi GTK",
+          url: URL_SUPERVISI_GTK,
+          pesan: "Sedang memuat aplikasi Supervisi GTK..."
+        },
+        sarpras: {
+          section: "page-sarpras-tersemat",
+          iframe: "iframeSarpras",
+          status: "statusSarprasIframe",
+          judul: "Sarana Prasarana",
+          url: URL_SARPRAS,
+          pesan: "Sedang memuat aplikasi Sarana Prasarana..."
+        }
+      };
+
+      const idHalamanLain = [
+        ".page-content",
+        "#page-master-siswa",
+        "#page-master-guru-karyawan",
+        "#page-absensi-tersemat"
+      ];
+
+      function sembunyikanHalamanEksternal() {
+        Object.values(halamanEksternal).forEach(function (item) {
+          const section = document.getElementById(item.section);
+          if (section) section.style.display = "none";
+        });
+      }
+
+      function tampilkanAplikasi(kunci) {
+        const item = halamanEksternal[kunci];
+        if (!item) return;
+
+        // Sembunyikan dashboard/halaman internal dan aplikasi eksternal lainnya.
+        idHalamanLain.forEach(function (selector) {
+          const halaman = document.querySelector(selector);
+          if (halaman) halaman.style.display = "none";
+        });
+        sembunyikanHalamanEksternal();
+
+        const section = document.getElementById(item.section);
+        const iframe = document.getElementById(item.iframe);
+        const status = document.getElementById(item.status);
+        if (!section || !iframe) return;
+
+        section.style.display = "block";
+
+        const breadcrumb = document.getElementById("breadcrumbCurrent");
+        if (breadcrumb) breadcrumb.textContent = item.judul;
+
+        if (!iframe.getAttribute("src")) {
+          if (status) {
+            status.textContent = item.pesan;
+            status.style.display = "block";
+          }
+
+          iframe.addEventListener("load", function () {
+            if (status) status.style.display = "none";
+          }, { once: true });
+
+          iframe.src = iframe.getAttribute("data-src") || item.url;
+        }
+      }
+
+      // Capture dijalankan sebelum listener navigasi di code.js.
+      // Menu lain tetap diproses oleh code.js seperti sebelumnya.
+      document.addEventListener("click", function (event) {
+        const tombolMenu = event.target.closest('.main-nav button[data-page]');
+        if (!tombolMenu) return;
+
+        const kunci = tombolMenu.dataset.page;
+        if (halamanEksternal[kunci]) {
+          tampilkanAplikasi(kunci);
+        } else {
+          sembunyikanHalamanEksternal();
+        }
+      }, true);
+    })();
+  </script>
+
+</body>
+</html>
