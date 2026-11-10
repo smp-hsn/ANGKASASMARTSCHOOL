@@ -1153,6 +1153,55 @@
   <!-- JAVASCRIPT -->
   <script src="code.js"></script>
 
+  <!-- PERBAIKAN NAVIGASI MENU MOBILE / ANDROID -->
+  <script>
+    (function () {
+      const sidebar = document.getElementById("sidebar");
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebarClose = document.getElementById("sidebarClose");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+      // Pastikan seluruh elemen menu tersedia sebelum memasang event.
+      if (!sidebar || !menuToggle || !sidebarClose || !sidebarOverlay) return;
+
+      function bukaMenuMobile() {
+        sidebar.classList.add("open");
+        sidebarOverlay.classList.add("show");
+        menuToggle.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+
+      function tutupMenuMobile() {
+        sidebar.classList.remove("open");
+        sidebarOverlay.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.addEventListener("click", bukaMenuMobile);
+      sidebarClose.addEventListener("click", tutupMenuMobile);
+      sidebarOverlay.addEventListener("click", tutupMenuMobile);
+
+      // Tutup menu setelah pengguna memilih salah satu halaman.
+      sidebar.addEventListener("click", function (event) {
+        if (event.target.closest(".main-nav button[data-page]")) {
+          tutupMenuMobile();
+        }
+      });
+
+      // Dukungan tombol Escape pada perangkat dengan keyboard.
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") tutupMenuMobile();
+      });
+
+      // Jika layar berubah kembali ke desktop, bersihkan status menu mobile.
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 760) tutupMenuMobile();
+      });
+    })();
+  </script>
+
   <!-- INTEGRASI MENU SUPERVISI GTK DAN SARANA PRASARANA -->
   <script>
     (function () {
